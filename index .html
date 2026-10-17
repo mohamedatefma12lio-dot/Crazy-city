@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0c0e14">
+<title>حرامي وظابط 3D – مطاردة في القاهرة</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="cv"></canvas>
+<canvas id="ov"></canvas>
+
+<div id="hud">
+  <div id="top"><span id="lvname"></span><span id="timer"></span></div>
+  <div id="roles"></div>
+  <div id="missions"></div>
+  <div id="toasts"></div>
+  <canvas id="mini" width="180" height="110"></canvas>
+  <div id="abil"></div>
+</div>
+
+<div id="touch">
+  <div id="lookzone"></div>
+  <div id="joyzone"><div id="joy"><div id="knob"></div></div></div>
+  <div class="tb" id="bE" style="right:16px;bottom:96px">فعل E</div>
+  <div class="tb" id="bQ" style="right:90px;bottom:60px">قدرة Q</div>
+  <div class="tb" id="bR" style="right:16px;bottom:20px">ركض</div>
+  <div class="tb" id="bT" style="right:90px;bottom:130px">تبديل</div>
+</div>
+
+<div class="screen on" id="menu"><div class="card">
+  <h1>🚔 حرامي وظابط 🦹</h1>
+  <p>مطاردة في شوارع فيصل والدقي والجيزة والمعادي وإسكندرية</p>
+  <button class="b" id="bContinue">▶ كمّل اللعبة</button>
+  <button class="b alt" id="bLevels">🗺️ اختيار المرحلة</button>
+  <button class="b alt" id="bReset">🗑️ مسح التقدم</button>
+  <button class="b alt" id="bQual"></button>
+  <div class="help">
+    <b>التحكم (كمبيوتر):</b> WASD للحركة — اسحب بالماوس أو ← → لتدوير الكاميرا — Shift للركض — <b>1 / 2 / 3</b> أو Tab للتبديل بين (حرامي / ضابط / الضحية) — E فعل — Q قدرة — P إيقاف.<br>
+    <b>📱 موبايل (لف الموبايل أفقي):</b> عصا الحركة على الشمال (ادفعها لآخرها للركض) — اسحب بصباعك على اليمين لتدوير الكاميرا — أزرار فعل / قدرة / تبديل على اليمين — أو اضغط على كروت الشخصيات فوق للتبديل.<br>
+    <b>🦹 الحرامي:</b> قف جنب حد واضغط E (استمر) عشان تنشل — Q قنبلة دخان — روح المخبأ بالفلوس عشان تودّعها.<br>
+    <b>👮 الضابط:</b> طارد الحرامي وقرّب منه واضغط E عشان تقبض عليه — Q رصد الحرامي لو قريب.<br>
+    <b>🧍 الضحية:</b> وصّل المشاوير (الدواير الملونة) — E صرخة تنبّه الناس والضابط. لو اتسرقت بتتحرق 🔥 وتجري للضابط تبلّغه.<br>
+    <b>الناس 👀:</b> أي جريمة قدامهم بيتجمعوا يتفرجوا وممكن يبلّغوا. الأزقة والشجر الغامق = أماكن تستخبى فيها.<br>
+    الشخصية اللي مش بتلعب بيها بيشغّلها الكمبيوتر، ولازم تخلّص مهمات التلات شخصيات عشان تعدّي المرحلة.
+  </div>
+</div></div>
+
+<div class="screen" id="levels"><div class="card">
+  <h2>اختار المرحلة</h2>
+  <div id="lvgrid"></div>
+  <button class="b alt" id="bBack1">رجوع</button>
+</div></div>
+
+<div class="screen" id="intro"><div class="card">
+  <h2 id="inTitle"></h2>
+  <p id="inDesc"></p>
+  <div class="mis" id="inMis"></div>
+  <button class="b" id="bStart">يلا نبدأ!</button>
+  <button class="b alt" id="bBack2">رجوع</button>
+</div></div>
+
+<div class="screen" id="pause"><div class="card">
+  <h2>⏸ إيقاف مؤقت</h2>
+  <button class="b" id="bResume">كمّل</button>
+  <button class="b alt" id="bRetry1">إعادة المرحلة</button>
+  <button class="b alt" id="bMenu1">القائمة</button>
+</div></div>
+
+<div class="screen" id="result"><div class="card">
+  <h2 id="rsTitle"></h2>
+  <p id="rsText"></p>
+  <button class="b" id="bNext">المرحلة الجاية ▶</button>
+  <button class="b alt" id="bRetry2">إعادة</button>
+  <button class="b alt" id="bMenu2">القائمة</button>
+</div></div>
+
+<div id="rot">📱🔄<br>لف الموبايل بالعرض عشان تلعب</div>
+<div class="screen" id="nogl"><div class="card"><h2>⚠️ الجرافيك 3D مش شغال</h2><p>المتصفح مش دعم WebGL. جرّب Chrome أو Safari حديث، أو فعّل تسريع الهاردوير.</p></div></div>
+<script src="three.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
